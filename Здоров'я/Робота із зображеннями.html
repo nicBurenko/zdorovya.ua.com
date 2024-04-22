@@ -1,0 +1,121 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За здоровий спосіб життя</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('Овочі.jpeg');
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.7);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2em;
+            animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid orange;
+            width: 12ch;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 12ch }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange }
+        }
+
+        .phrase-box {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid black;
+            animation: bgColorChange 1.5s infinite alternate;
+        }
+
+        @keyframes bgColorChange {
+            from {background-color: yellow;}
+            to {background-color: green;}
+        }
+
+        .phrase-3d {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-shadow: 3px 3px 3px #aaa;
+        }
+
+        .show-image-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .show-image-btn:hover {
+            background-color: lightblue;
+        }
+
+        #author {
+            font-size: 18px;
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        #questions {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"></h1>
+        <div class="phrase-box">
+            <p class="phrase">Підтримуйте своє здоров'я кожен день</p>
+        </div>
+        <p class="phrase-3d">Споживайте різноманітні та збалансовані продукти</p>
+        <button class="show-image-btn">Фонове зображення</button>
+    </div>
+
+    <script>
+        const title = document.querySelector('.title');
+
+        const titleText = "Здоров'я";
+        let idx = 0;
+
+        function typeTitle() {
+            if (idx < titleText.length) {
+                title.textContent += titleText[idx];
+                idx++;
+                setTimeout(typeTitle, 200);
+            }
+        }
+
+        typeTitle();
+
+        const btn = document.querySelector('.show-image-btn');
+        btn.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'transparent';
+        });
+    </script>
+</body>
+</html>
